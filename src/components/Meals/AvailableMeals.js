@@ -6,10 +6,12 @@ import classes from "./AvailableMeals.module.css";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchMeals = async () => {
-      const reponse = await fetch('https://foodorderapp-57c11-default-rtdb.firebaseio.com/');
+      setIsLoading(true);
+      const response = await fetch('https://foodorderapp-57c11-default-rtdb.firebaseio.com/');
       const responseData = await response.json();
 
       const loadedMeals = [];
@@ -24,10 +26,19 @@ const AvailableMeals = () => {
       }
 
       setMeals(loadedMeals);
+      setIsLoading(false);
     };
   
     fetchMeals();
   }, []);
+
+  if (isLoading) {
+    return (
+      <section className={classes.MealsLoading}>
+        <p>Loading...</p>
+      </section>
+    );
+  }
 
   const mealsList = meals.map((meal) => (
     <MealItem
