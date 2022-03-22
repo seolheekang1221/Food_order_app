@@ -49,7 +49,7 @@ const AvailableMeals = () => {
         <p>Loading...</p>
       </section>
     );
-  };
+  }
 
   if (httpError) {
     return (
