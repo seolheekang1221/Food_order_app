@@ -46,16 +46,21 @@ const Checkout = (props) => {
       enteredPostalCodeIsValid;
 
     if (!formIsValid) {
-  
-
+      return;
     }
 
-    //submit the cart data
+    props.onConfirm({
+      name: enteredName,
+      street: enteredStreet,
+      city: enteredCity,
+      postalCode: enteredPostalCode,
+    });
   };
 
   const nameControlClasses = '${classes.control} ${
     formInputsValidity.name ? '' : classes.invalid
   }';
+  
   const streetControlClasses = '${classes.control} ${
     formInputsValidity.street ? '' : classes.invalid
   }';
@@ -73,7 +78,7 @@ const Checkout = (props) => {
         <input type="text" id="name" ref={nameInputRef}></input>
         {!formInputsValidity.name && <p>Please enter a valid name</p>}
       </div>
-      <div className={streetControlClassesl}>
+      <div className={streetControlClasses}>
         <label htmlFor="name">Street</label>
         <input type="text" id="street" ref={streetInputRef}></input>
         {!formInputsValidity.street && <p>Please enter a valid street</p>}
