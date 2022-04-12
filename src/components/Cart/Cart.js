@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 
-import Modal from "../UI/Modal";
+import Model from "../UI/Model";
 import CartItem from "./CartItem";
 import classes from "./Cart.module.css";
 import CartContext from "../../store/cart-context";
@@ -30,7 +30,7 @@ const Cart = (props) => {
   const submitOrderHandler = async (userData) => {
     setIsSubmitting(true);
     await fetch(
-      "https://foodorderapp-57c11-default-rtdb.firebaseio.com/orders.json",
+      "https://food-order-app-seolhee-default-rtdb.firebaseio.com//meals.json",
       {
         method: "POST",
         body: JSON.stringify({
@@ -59,7 +59,7 @@ const Cart = (props) => {
     </ul>
   );
 
-  const modalActions = (
+  const modelActions = (
     <div className={classes.actions}>
       <button className={classes["button--alt"]} onClick={props.onClose}>
         close
@@ -72,7 +72,7 @@ const Cart = (props) => {
     </div>
   );
 
-  const cartModalContent = (
+  const cartmodelContent = (
     <React.Fragment>
       {cartItems}
       <div className={classes.total}>
@@ -82,13 +82,13 @@ const Cart = (props) => {
       {isCheckout && (
         <Checkout onConfirm={submitOrderHandler} onCancel={props.onClose} />
       )}
-      {!isCheckout && modalActions}
+      {!isCheckout && modelActions}
     </React.Fragment>
   );
 
-  const isSubmittingModalContent = <p>sending order data...</p>;
+  const isSubmittingmodelContent = <p>sending order data...</p>;
 
-  const didSubmitModalContent = (
+  const didSubmitmodelContent = (
     <React.Fragment>
       <p>Successfully sent the order!</p>;
       <div className={classes.actions}>
@@ -100,11 +100,11 @@ const Cart = (props) => {
   );
 
   return (
-    <Modal onClose={props.onClose}>
-      {!isSubmitting && !didSubmit && cartModalContent}
-      {isSubmitting && isSubmittingModalContent}
-      {!isSubmitting && didSubmit && didSubmitModalContent}
-    </Modal>
+    <Model onClose={props.onClose}>
+      {!isSubmitting && !didSubmit && cartmodelContent}
+      {isSubmitting && isSubmittingmodelContent}
+      {!isSubmitting && didSubmit && didSubmitmodelContent}
+    </Model>
   );
 };
 
