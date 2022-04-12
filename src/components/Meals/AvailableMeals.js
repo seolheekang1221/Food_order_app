@@ -11,9 +11,8 @@ const AvailableMeals = () => {
 
   useEffect(() => {
     const fetchMeals = async () => {
-      setIsLoading(true);
       const response = await fetch(
-        'https://foodorderapp-57c11-default-rtdb.firebaseio.com/'
+        'https://food-order-app-seolhee-default-rtdb.firebaseio.com/meals.json'
       );
 
       if (!response.ok) {
@@ -37,11 +36,12 @@ const AvailableMeals = () => {
       setIsLoading(false);
     };
 
-        fetchMeals().catch((error) => {
-          setIsLoading(false);
-          setHttpError(error.message);
-        });
-    }, []);
+    fetchMeals().catch((error) => {
+      setIsLoading(false);
+      setHttpError(error.message);
+    });
+  }, []);
+
 
   if (isLoading) {
     return (
