@@ -2,9 +2,9 @@
     cursor: pointer;
     font: inherit;
     border: none;
-    background-color: #FFA2B8;
+    background-color: #cf284f;
     color: white;
-    padding: 0.4rem 2.5rem;
+    padding: 0.4rem 1.5rem;
     margin-right: 15rem;
     display: flex;
     justify-content: space-around;
@@ -15,7 +15,7 @@
   
   .button:hover,
   .button:active {
-    background-color: #b3db69;
+    background-color: hsl(0, 5%, 37%);
   }
   
   .icon {
@@ -25,7 +25,7 @@
   }
   
   .badge {
-    background-color: #1727b9;
+    background-color: #383838;
     padding: 0.25rem 1rem;
     border-radius: 25px;
     margin-left: 1rem;
@@ -34,7 +34,7 @@
   
   .button:hover .badge,
   .button:active .badge {
-    background-color: #92320c;
+    background-color: #383838;
   }
   
   .bump {
