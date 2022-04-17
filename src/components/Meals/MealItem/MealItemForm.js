@@ -16,7 +16,7 @@ const MealItemForm = (props) => {
     if (
       enteredAmount.trim().length === 0 ||
       enteredAmountNumber < 1 ||
-      enteredAmountNumber > 10
+      enteredAmountNumber > 15
     ) {
       setAmountIsValid(false);
       return;
@@ -34,7 +34,7 @@ const MealItemForm = (props) => {
           id: 'amount_' + props.id,
           type: "number",
           min: "1",
-          max: "10",
+          max: "15",
           step: "1",
           defaultValue: "1",
         }}
