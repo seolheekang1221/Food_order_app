@@ -1,7 +1,7 @@
 # Food Order App
 This app a a Food Order App built using React and Node.js
 
-# Features (summary)
+# Objective
 - Using the useEffect for CSS animation and implemented responsive design with React Scripts, and Web-vitals
 - Implemented REST API using Firebase service for customers  to order from restaurant by Fetching some data and HTTP requests
 - Passed a prop through multiple levels of components by ReactDOM
