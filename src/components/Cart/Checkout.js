@@ -3,7 +3,7 @@ import { useRef, useState } from "react";
 import classes from "./Checkout.module.css";
 
 const isEmpty = (value) => value.trim() === "";
-const isFiveChars = (value) => value.trim().length === 5;
+const isFiveChars = (value) => value.trim().length === 7;
 
 const Checkout = (props) => {
   const [formInputsValidity, setFormInputsValidity] = useState({
@@ -28,22 +28,22 @@ const Checkout = (props) => {
 
     const enteredNameIsValid = !isEmpty(enteredName);
     const enteredStreetIsValid = !isEmpty(enteredStreet);
+    const enteredPostalCodeIsValid = isFiveChars(enteredPostalCode);
     const enteredCityIsValid = !isEmpty(enteredCity);
-    const enteredPostalCodeIsValid = !isFiveChars(enteredPostalCode);
 
     setFormInputsValidity({
       name: enteredNameIsValid,
       street: enteredStreetIsValid,
-      city: enteredCityIsValid,
-      postalCode: enteredPostalCodeIsValid
+      postalCode: enteredPostalCodeIsValid,
+      city: enteredCityIsValid
     });
 
 
     const formIsValid =
       enteredNameIsValid &&
       enteredStreetIsValid &&
-      enteredCityIsValid &&
-      enteredPostalCodeIsValid;
+      enteredPostalCodeIsValid &&
+      enteredCityIsValid;
 
     if (!formIsValid) {
       return;
@@ -52,8 +52,8 @@ const Checkout = (props) => {
     props.onConfirm({
       name: enteredName,
       street: enteredStreet,
-      city: enteredCity,
       postalCode: enteredPostalCode,
+      city: enteredCity,
     });
   };
 

@@ -11,24 +11,24 @@ const AvailableMeals = () => {
 
   useEffect(() => {
     const fetchMeals = async () => {
-      const response = await fetch(
+      const res = await fetch(
         'https://food-order-app-seolhee-default-rtdb.firebaseio.com/meals.json'
       );
 
-      if (!response.ok) {
+      if (!res.ok) {
         throw new Error('Something went wrong');
       }
 
-      const responseData = await response.json();
+      const data = await res.json();
 
       const loadedMeals = [];
 
-      for (const key in responseData) {
+      for (const key in data) {
         loadedMeals.push({
           id: key,
-          name: responseData[key].name,
-          description: responseData[key].description,
-          price: responseData[key].price,
+          name: data[key].name,
+          description: data[key].description,
+          price: data[key].price,
         });
       }
 

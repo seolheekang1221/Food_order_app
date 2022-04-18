@@ -2,8 +2,12 @@
 This app a a Food Order App built using React and Node.js
 
 # Features
-- Implemented responsive web designed with React hooks, React-DOM, React Scripts and Web-vitals
-- Firebase service for customers to order from restaurant by Fetching with Http
+- Using the useEffect for CSS animation and implemented responsive design with React Scripts, and Web-vitals
+- Implemented REST API using Firebase service for customers  to order from restaurant by Fetching some data and HTTP requests
+- Passed a prop through multiple levels of components by ReactDOM
+- Managed state by React Hook and dispatch an action by useReducer
+- Parsed to the ref prop on component function by useRef
+- Used useContext for accessing to createContext
 
 # Deployment
 This app is deployed and hosted using Netlify
@@ -44,10 +48,12 @@ cd Food_order_app
 2. Install dependencies and start the server
 ```sh
 npm install
-Run the development server
+```
+3. run the development server
+```sh
 npm run dev
 # or
 yarn dev
 ```
-3. Open http://localhost:3000 with your browser to see the result.
+4. Open http://localhost:3000 with your browser to see the result.
 
