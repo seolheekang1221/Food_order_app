@@ -1,13 +1,40 @@
 # Food Order App
 This app a a Food Order App built using React and Node.js
 
-# Features
+# Features (summary)
 - Using the useEffect for CSS animation and implemented responsive design with React Scripts, and Web-vitals
 - Implemented REST API using Firebase service for customers  to order from restaurant by Fetching some data and HTTP requests
 - Passed a prop through multiple levels of components by ReactDOM
 - Managed state by React Hook and dispatch an action by useReducer
 - Parsed to the ref prop on component function by useRef
 - Used useContext for accessing to createContext
+
+# Features
+1. React Portal for backdrop and overlay
+Behind the modal overlay which blocks interaction with the rest of the page
+
+2. Passed a prop through multiple levels of components 
+1. Open Cart
+App.js - showCartHandler => Header.js - onShowCart => HeaderCartButton - onClick => onShowCart
+
+2. Open Close
+"onClose" is passed
+App.js - hideCartHandler => Cart.js - onClose => Model.js => Backdrop
+
+3. store => convention in react state management
+
+4. Used useContext react hook for access to cartContext in HeaderCartButton.
+Access to cart context dot items and length is for get the array of cart items. 
+Reduce that allows to transform an array of data in a single value in numberOfCartItems.
+
+5. CartProvider.js => For re-evaluated whenever the cart data changes, it is imported useReducer which allow them to mange state
+-> cartReducer receive a state object and action which is dispatched such like "ADD" "REMOVE" "CLEAR" in CartProvider.js. useReducer(react hook) which allow them to mange state and dispatchCartAction is function dispatch an action to the reducer
+
+6. MealItemForm.js => Parsed to the ref prop on component function by using the "useRef"
+
+7. Whenever i push item a second or thihrd times, it can be aggregated together into one item.
+I am reaching existing items in the cart by findindex which is built-in method about finding the index of an item in array and if item.id === action.item.id, it will return true. If the item is same id with the item I want to add, it will be dispatched. If a item that i want to add already in the cart, i will make const existingCartItem = state.items[existingCartItemIndex];
+If existingCartItem is already in array, updateditem will be set existingCartItem and be updated amount: existingCartItem.amount + action.item.amount. And updateItems is same with new array which is existing items and it is updatedItems = […state.items];. I copy the old objects and overwrite it. updatedItems[existingCartItemIndex] = updatedItem; Everything is showing the cart items array. In else case, updatedItems is new item and copy action item and updatedItems set to state.items.concat, and add updatedItem.
 
 # Deployment
 This app is deployed and hosted using Netlify
